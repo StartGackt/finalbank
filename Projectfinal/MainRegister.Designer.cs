@@ -131,7 +131,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             ForeColor = Color.Transparent;
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "MainRegister";
             Text = "MainRegister";
             Load += MainRegister_Load;

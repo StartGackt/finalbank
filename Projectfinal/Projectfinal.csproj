@@ -39,11 +39,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="C:\Users\Thest\source\repos\projectfinal\Projectfinal\Model\.editorconfig" />
+    <EditorConfigFiles Remove="C:\C:\Users\User\projectfinal\Projectfinal\Model\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="C:\Users\Thest\source\repos\projectfinal\Projectfinal\Model\.editorconfig" />
+    <None Include="C:\Users\Userprojectfinal\Projectfinal\Model\.editorconfig" />
   </ItemGroup>
 
 </Project>

@@ -43,22 +43,22 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Gold;
             label1.Location = new Point(584, 187);
             label1.Name = "label1";
-            label1.Size = new Size(727, 57);
+            label1.Size = new Size(991, 51);
             label1.TabIndex = 0;
             label1.Text = "ระบบบริหารจัดการกลุ่มออมทรัพย์เพื่อการผลิตบ้านท่ารวก ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Gold;
             label2.Location = new Point(620, 244);
             label2.Name = "label2";
-            label2.Size = new Size(635, 57);
+            label2.Size = new Size(856, 51);
             label2.TabIndex = 1;
             label2.Text = "ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี ";
             // 
@@ -72,56 +72,56 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(848, 343);
             label3.Name = "label3";
-            label3.Size = new Size(211, 57);
+            label3.Size = new Size(274, 51);
             label3.TabIndex = 3;
             label3.Text = " การเข้าสู่ระบบ";
             // 
             // Username
             // 
             Username.AutoSize = true;
-            Username.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Username.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Username.ForeColor = Color.Transparent;
-            Username.Location = new Point(423, 475);
+            Username.Location = new Point(319, 468);
             Username.Name = "Username";
-            Username.Size = new Size(303, 57);
+            Username.Size = new Size(414, 51);
             Username.TabIndex = 4;
             Username.Text = " ชื่อผู้ใช้งาน (เจ้าหน้าที่)";
             // 
             // Password
             // 
             Password.AutoSize = true;
-            Password.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Password.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Password.ForeColor = Color.Transparent;
-            Password.Location = new Point(465, 627);
+            Password.Location = new Point(428, 626);
             Password.Name = "Password";
-            Password.Size = new Size(128, 57);
+            Password.Size = new Size(167, 51);
             Password.TabIndex = 5;
             Password.Text = "รหัสผ่าน";
             // 
             // txtUsername
             // 
-            txtUsername.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtUsername.Font = new Font("Microsoft Sans Serif", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtUsername.Location = new Point(793, 475);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(462, 51);
+            txtUsername.Size = new Size(462, 45);
             txtUsername.TabIndex = 6;
             // 
             // txtPassword
             // 
-            txtPassword.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtPassword.Font = new Font("Microsoft Sans Serif", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtPassword.Location = new Point(793, 633);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(462, 51);
+            txtPassword.Size = new Size(462, 45);
             txtPassword.TabIndex = 7;
             // 
             // button1
             // 
             button1.BackColor = Color.DarkGreen;
-            button1.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Microsoft Sans Serif", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Transparent;
             button1.Location = new Point(704, 784);
             button1.Name = "button1";
@@ -134,7 +134,7 @@
             // button2
             // 
             button2.BackColor = Color.DarkGreen;
-            button2.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Font = new Font("Microsoft Sans Serif", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.Transparent;
             button2.Location = new Point(1027, 784);
             button2.Name = "button2";
