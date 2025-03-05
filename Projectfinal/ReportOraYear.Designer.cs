@@ -188,7 +188,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "ReportOraYear";
             Text = "ReportOraYear";
             Load += ReportOraYear_Load;

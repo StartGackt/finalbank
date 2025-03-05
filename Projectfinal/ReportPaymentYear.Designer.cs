@@ -177,7 +177,6 @@
             Controls.Add(label2);
             Controls.Add(label1);
             ForeColor = SystemColors.ButtonHighlight;
-            FormBorderStyle = FormBorderStyle.None;
             Name = "ReportPaymentYear";
             Text = "ReportPaymentYear";
             Load += ReportPaymentYear_Load;

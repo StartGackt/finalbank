@@ -141,7 +141,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "AllDividend";
             Text = "AllDividend";
             Load += AllDividend_Load;

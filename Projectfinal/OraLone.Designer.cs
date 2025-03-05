@@ -631,7 +631,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "OraLone";
             Text = "OraLone";
             Load += OraLone_Load;

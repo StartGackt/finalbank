@@ -130,8 +130,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Cursor = Cursors.Default;
-            FormBorderStyle = FormBorderStyle.None;
             Name = "MainAdmin";
             Text = "MainAdmin";
             Load += MainAdmin_Load;

@@ -176,7 +176,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "ReportEmerYear";
             Text = "ReportEmerYear";
             Load += ReportEmerYear_Load;

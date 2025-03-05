@@ -312,7 +312,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "MemberRegignation";
             Text = "MemberRegignation";
             Load += MemberRegignation_Load;

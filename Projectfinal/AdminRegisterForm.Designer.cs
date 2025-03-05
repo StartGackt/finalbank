@@ -315,7 +315,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "AdminRegisterForm";
             Load += AdminRegister_Load;
             ResumeLayout(false);

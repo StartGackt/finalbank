@@ -42,7 +42,7 @@
             // button2
             // 
             button2.BackColor = Color.DarkGreen;
-            button2.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold);
             button2.ForeColor = Color.Transparent;
             button2.Location = new Point(528, 673);
             button2.Name = "button2";
@@ -55,7 +55,7 @@
             // button1
             // 
             button1.BackColor = Color.DarkGreen;
-            button1.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold);
             button1.ForeColor = Color.Transparent;
             button1.Location = new Point(528, 381);
             button1.Name = "button1";
@@ -68,7 +68,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(705, 267);
             label3.Name = "label3";
@@ -86,7 +86,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
             label2.ForeColor = Color.Gold;
             label2.Location = new Point(538, 168);
             label2.Name = "label2";
@@ -97,7 +97,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
             label1.ForeColor = Color.Gold;
             label1.Location = new Point(492, 111);
             label1.Name = "label1";
@@ -108,7 +108,7 @@
             // button3
             // 
             button3.BackColor = Color.DarkGreen;
-            button3.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Font = new Font("TH Sarabun New", 19.7999973F, FontStyle.Bold);
             button3.ForeColor = Color.Transparent;
             button3.Location = new Point(528, 524);
             button3.Name = "button3";
@@ -121,7 +121,7 @@
             // button4
             // 
             button4.BackColor = Color.DarkGreen;
-            button4.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold, GraphicsUnit.Point);
+            button4.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
             button4.ForeColor = Color.Transparent;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.Location = new Point(1811, 951);
@@ -145,7 +145,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Mainborrowmoney";
             Text = "Mainborrowmoney";
             Load += Mainborrowmoney_Load;
