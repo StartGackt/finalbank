@@ -133,7 +133,7 @@ namespace Projectfinal
         {
             try
             {
-                string directoryPath = @"C:\Users\Thest\source\repos\bankingcs\Filepdf";
+                string directoryPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Filepdf";
                 if (!Directory.Exists(directoryPath))
                 {
                     try
@@ -154,7 +154,7 @@ namespace Projectfinal
                 string fileName = $"ADMIN_Register_{DateTime.Now:yyyyMMddHHmmss}.pdf";
                 string fullPath = IoPath.Combine(directoryPath, fileName);
 
-                string fontPath = @"C:\Users\Thest\source\repos\Projectfinal\Projectfinal\Fonts\Kanit-Bold.ttf";
+                string fontPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
                 if (!File.Exists(fontPath))
                 {
                     throw new FileNotFoundException($"Font file not found at: {fontPath}");
