@@ -26,6 +26,7 @@ namespace Projectfinal
         private void button1_Click(object sender, EventArgs e)
         {
             new Main().Show();
+            this.Hide();
         }
 
         private void UserRegister_Load(object sender, EventArgs e)

@@ -80,6 +80,7 @@ namespace Projectfinal
         private void button3_Click(object sender, EventArgs e)
         {
             new Main().Show();
+            this.Hide();
         }
 
         private void Deposit_Load(object sender, EventArgs e)
