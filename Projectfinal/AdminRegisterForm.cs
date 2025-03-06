@@ -223,11 +223,11 @@ namespace Projectfinal
             }
             catch (iText.Kernel.Exceptions.PdfException pdfEx)
             {
-                MessageBox.Show($"PDF creation failed: {pdfEx.Message}\n\nDetails", "PDF Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"PDF creation failed: {pdfEx.Message}\nStack Trace: {pdfEx.StackTrace}", "PDF Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}\nStack Trace: {ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
