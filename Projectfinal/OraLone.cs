@@ -2,6 +2,10 @@
 using System.Linq;
 using System.Windows.Forms;
 using Projectfinal.Model;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using PdfSharp.Fonts;
+using System.Diagnostics;
 
 namespace Projectfinal
 {
@@ -27,7 +31,8 @@ namespace Projectfinal
             GenerateLoneNumber();
         }
 
-        private void OraLone_Load(object sender, EventArgs e) {
+        private void OraLone_Load(object sender, EventArgs e)
+        {
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -240,7 +245,7 @@ namespace Projectfinal
 
                 if (!int.TryParse(txtLoneMoney1.Text.Trim(), out int months) || months <= 0)
                 {
-                   
+
                     return;
                 }
 
@@ -362,6 +367,126 @@ namespace Projectfinal
             {
                 MessageBox.Show($"เกิดข้อผิดพลาด: {ex.Message}\nรายละเอียด: {ex.InnerException?.Message ?? "ไม่มีรายละเอียดเพิ่มเติม"}");
             }
+        }
+
+        private void print_pdf_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GlobalFontSettings.FontResolver = new CustomFontResolver();
+
+                string directoryPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Filepdf";
+
+                if (!Directory.Exists(directoryPath))
+                    Directory.CreateDirectory(directoryPath);
+
+                string fileName = $"LoanContract_{txtNumberLone.Text}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
+                string fullPath = Path.Combine(directoryPath, fileName);
+
+                PdfDocument document = new PdfDocument();
+                document.Info.Title = "สัญญาเงินกู้";
+                PdfPage page = document.AddPage();
+                page.Size = PdfSharp.PageSize.A4;
+
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+                XFont titleFont = new XFont("Kanit-Bold", 16);
+                XFont headerFont = new XFont("Kanit-Bold", 12);
+                XFont contentFont = new XFont("Kanit-Bold", 11);
+
+                int yPos = 40;
+                int margin = 60;
+                int rowHeight = 25;
+
+                gfx.DrawString("ระบบบริหารจัดการกลุ่มออมทรัพย์เพื่อการผลิตบ้านท่ารวก", titleFont, XBrushes.Black, new XRect(0, yPos, page.Width, 25), XStringFormats.Center);
+                yPos += 25;
+
+                gfx.DrawString("ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width, 25), XStringFormats.Center);
+                yPos += 25;
+
+                gfx.DrawString("ข้อมูลเกี่ยวกับสมาชิก : การกู้เงินสามัญ", headerFont, XBrushes.Black, new XRect(0, yPos, page.Width, 20), XStringFormats.Center);
+                yPos += 40;
+
+                // ข้อมูลสมาชิก
+                gfx.DrawString($"เลขที่สมาชิก: {txtusername.Text}", contentFont, XBrushes.Black, margin, yPos);
+                gfx.DrawString($"รหัสครอบครัว: {txtFamily.Text}", contentFont, XBrushes.Black, margin + 300, yPos);
+                yPos += 25;
+
+                gfx.DrawString($"ชื่อ - นามสกุล: {txtFullname.Text}", contentFont, XBrushes.Black, margin, yPos);
+                yPos += 30;
+
+                // ข้อมูลผู้ค้ำประกัน
+                for (int i = 1; i <= 3; i++)
+                {
+                    var username = Controls[$"txtUsername{i}"].Text;
+                    var fullname = Controls[$"txtFullname{i}"].Text;
+                    var phone = Controls[$"txtPhone{i}"]?.Text;
+
+                    if (!string.IsNullOrEmpty(username))
+                    {
+                        gfx.DrawString($"เลขที่สมาชิก ผู้ค้ำประกันคนที่ {i}: {username}", contentFont, XBrushes.Black, margin, yPos);
+                        gfx.DrawString($"ชื่อ-นามสกุล: {fullname}", contentFont, XBrushes.Black, margin + 220, yPos);
+                        gfx.DrawString($"เบอร์โทรศัพท์: {phone}", contentFont, XBrushes.Black, margin + 380, yPos);
+                        yPos += 30;
+                    }
+                }
+
+                yPos += 20;
+
+                // ข้อมูลการกู้เงิน
+                gfx.DrawString($"เลขที่สัญญา: {txtNumberLone.Text}", contentFont, XBrushes.Black, margin, yPos);
+                gfx.DrawString($"จำนวนเงินฝาก: {txtMoneyOld.Text} บาท", contentFont, XBrushes.Black, 300, yPos);
+                yPos += 25;
+
+                gfx.DrawString($"จำนวนเงินกู้: {txtLoneMoney.Text} บาท", contentFont, XBrushes.Black, margin, yPos);
+                gfx.DrawString($"จำนวนงวดที่ส่ง: {txtLoneMoney1.Text} งวด", contentFont, XBrushes.Black, 300, yPos);
+                yPos += 30;
+
+                gfx.DrawString($"ดอกเบี้ย: {txtInterrate.Text} %", contentFont, XBrushes.Black, margin, yPos);
+                gfx.DrawString($"ส่งงวดละ: {txtTotalMoneyLone.Text} บาท", contentFont, XBrushes.Black, 300, yPos);
+                yPos += 50;
+
+                gfx.DrawString($"วันที่ {DateTime.Now:dd MMMM yyyy}", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width - margin, 25), XStringFormats.BottomRight);
+
+                yPos += 40;
+                gfx.DrawString("(ลายเซ็นเจ้าหน้าที่)", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width, 25), XStringFormats.Center);
+
+                document.Save(fullPath);
+
+                Process.Start(new ProcessStartInfo { FileName = fullPath, UseShellExecute = true });
+
+                MessageBox.Show($"สร้างไฟล์ PDF เรียบร้อยแล้ว\nบันทึกไฟล์ที่: {fullPath}", "สำเร็จ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"เกิดข้อผิดพลาดในการสร้างไฟล์ PDF: {ex.Message}\n{ex.StackTrace}", "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public class CustomFontResolver : IFontResolver
+        {
+            public byte[] GetFont(string faceName)
+            {
+                if (faceName.StartsWith("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
+                {
+                    string fontPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
+                    return File.ReadAllBytes(fontPath);
+                }
+                return null;
+            }
+
+            public FontResolverInfo ResolveTypeface(string familyName, bool isBold, bool isItalic)
+            {
+                if (familyName.Equals("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
+                {
+                    return new FontResolverInfo("Kanit-Bold");
+                }
+                // Fallback to standard fonts if Kanit is not available
+                return PlatformFontResolver.ResolveTypeface("Arial", isBold, isItalic);
+            }
+
+            private static readonly IFontResolver PlatformFontResolver = GlobalFontSettings.FontResolver;
+
+            public string DefaultFontName => "Kanit-Bold";
         }
     }
 }
