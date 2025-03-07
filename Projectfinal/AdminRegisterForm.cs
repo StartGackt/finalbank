@@ -1,17 +1,11 @@
 ﻿using Projectfinal.Model;
 using Microsoft.EntityFrameworkCore;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Layout.Properties;
-using iText.IO.Font;
-using iText.Kernel.Font;
-using iText.IO.Font.Constants;
-using iText.Kernel.Geom;
-using iText.Kernel.Colors;
-using iText.IO.Image;
 using System.IO;
 using IoPath = System.IO.Path;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using System.Text;
+using PdfSharp.Fonts;
 
 namespace Projectfinal
 {
@@ -21,6 +15,12 @@ namespace Projectfinal
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+
+            // Required for PdfSharp to support UTF-8 encoding (for Thai characters)
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            
+            // Register custom font resolver for Thai font support
+            GlobalFontSettings.FontResolver = new CustomFontResolver();
         }
 
         dbcontext dbcontext = new dbcontext();
@@ -108,6 +108,16 @@ namespace Projectfinal
 
                 MessageBox.Show("เพิ่มข้อมูลสำเร็จ", "สำเร็จ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                // Store the form values in class properties for PDF generation
+                Username = txtusername.Text;
+                Password = txtPassword.Text;
+                Idcard = txtIdcard.Text;
+                Phone = txtPhone.Text;
+                Fullname = txtFullname.Text;
+                Address = txtAddress.Text;
+                Position = comboBox1.Text;
+                Time = DateTime.Now.ToString("hh:mm:ss tt");
+
                 // Print PDF immediately after adding data
                 print_Click(sender, e);
             }
@@ -133,102 +143,219 @@ namespace Projectfinal
         {
             try
             {
-                string directoryPath = @"C:\Users\Thest\source\repos\bankingcs\Filepdf";
+                // Create directory on desktop
+                string directoryPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Filepdf";
+
                 if (!Directory.Exists(directoryPath))
                 {
-                    try
-                    {
-                        Directory.CreateDirectory(directoryPath);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"ไม่สามารถสร้างโฟลเดอร์ได้: {ex.Message}",
-                                        "Error",
-                                        MessageBoxButtons.OK,
-                                        MessageBoxIcon.Error);
-                        return;
-                    }
+                    Directory.CreateDirectory(directoryPath);
                 }
 
                 // Create PDF filename
                 string fileName = $"ADMIN_Register_{DateTime.Now:yyyyMMddHHmmss}.pdf";
-                string fullPath = IoPath.Combine(directoryPath, fileName);
+                string fullPath = Path.Combine(directoryPath, fileName);
 
-                string fontPath = @"C:\Users\Thest\source\repos\Projectfinal\Projectfinal\Fonts\Kanit-Bold.ttf";
-                if (!File.Exists(fontPath))
+                // Create document
+                PdfDocument document = new PdfDocument();
+                document.Info.Title = "Admin Register Information";
+                PdfPage page = document.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+
+                // Define fonts with Unicode encoding for Thai support
+                XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode);
+                XFont titleFont = new XFont("Kanit-Bold", 18);
+                XFont subtitleFont = new XFont("Kanit-Bold", 14);
+                XFont headerFont = new XFont("Kanit-Bold", 11);
+                XFont contentFont = new XFont("Kanit-Bold", 11);
+
+                // Draw title
+                gfx.DrawString("ระบบบริหารจัดการกลุ่มออมทรัพย์เพื่อการผลิตบ้านท่ารวก", titleFont, XBrushes.Black,
+                              new XRect(0, 40, page.Width, 30), XStringFormats.Center);
+
+                gfx.DrawString("ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี", subtitleFont, XBrushes.Black,
+                              new XRect(0, 70, page.Width, 30), XStringFormats.Center);
+
+                gfx.DrawString("ข้อมูลเกี่ยวกับเจ้าหน้าที่กองทุน : การปันผลครอบครัว", subtitleFont, XBrushes.Black,
+                              new XRect(0, 100, page.Width, 30), XStringFormats.Center);
+
+                // Get form data
+                string username = txtusername.Text;
+                if (string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(Username))
+                    username = Username;
+
+                string password = txtPassword.Text;
+                if (string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(Password))
+                    password = Password;
+
+                string idCard = txtIdcard.Text;
+                if (string.IsNullOrEmpty(idCard) && !string.IsNullOrEmpty(Idcard))
+                    idCard = Idcard;
+
+                string phone = txtPhone.Text;
+                if (string.IsNullOrEmpty(phone) && !string.IsNullOrEmpty(Phone))
+                    phone = Phone;
+
+                string fullname = txtFullname.Text;
+                if (string.IsNullOrEmpty(fullname) && !string.IsNullOrEmpty(Fullname))
+                    fullname = Fullname;
+
+                string address = txtAddress.Text;
+                if (string.IsNullOrEmpty(address) && !string.IsNullOrEmpty(Address))
+                    address = Address;
+
+                string position = comboBox1.Text;
+                if (string.IsNullOrEmpty(position) && !string.IsNullOrEmpty(Position))
+                    position = Position;
+
+                // Define table properties
+                double tableStartY = 150;
+                double tableWidth = 500;
+                double leftMargin = 50;
+                double rowHeight = 30;
+                double col1Width = 150;
+                double col2Width = tableWidth - col1Width;
+
+                // Draw table header row with background
+                XRect headerRect = new XRect(leftMargin, tableStartY, tableWidth, rowHeight);
+                gfx.DrawRectangle(new XSolidBrush(XColor.FromArgb(220, 220, 220)), headerRect);
+                gfx.DrawRectangle(new XPen(XColors.Black, 1), headerRect);
+
+                // Draw header text
+                XRect labelHeaderRect = new XRect(leftMargin, tableStartY, col1Width, rowHeight);
+                XRect valueHeaderRect = new XRect(leftMargin + col1Width, tableStartY, col2Width, rowHeight);
+
+                gfx.DrawString("หัวข้อ", headerFont, XBrushes.Black, labelHeaderRect, XStringFormats.Center);
+                gfx.DrawString("ข้อมูล", headerFont, XBrushes.Black, valueHeaderRect, XStringFormats.Center);
+
+                // Draw vertical divider in header
+                gfx.DrawLine(new XPen(XColors.Black, 1),
+                    new XPoint(leftMargin + col1Width, tableStartY),
+                    new XPoint(leftMargin + col1Width, tableStartY + rowHeight));
+
+                double currentY = tableStartY + rowHeight;
+
+                // Draw table rows
+                string[,] rowData = new string[,] {
+            {"ชื่อผู้ใช้งาน", username},
+            {"รหัสผ่าน", password},
+            {"รหัสบัตรประชาชน", idCard},
+            {"เบอร์โทรศัพท์", phone},
+            {"ชื่อ - สกุล", fullname},
+            {"ที่อยู่", address},
+            {"ตำแหน่ง", position},
+            {"เวลาที่บันทึก", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")}
+        };
+
+                for (int i = 0; i < rowData.GetLength(0); i++)
                 {
-                    throw new FileNotFoundException($"Font file not found at: {fontPath}");
+                    // Draw row background with alternating colors
+                    bool isEvenRow = i % 2 == 0;
+                    XColor rowColor = isEvenRow ? XColor.FromArgb(240, 240, 240) : XColor.FromArgb(255, 255, 255);
+                    XRect rowRect = new XRect(leftMargin, currentY, tableWidth, rowHeight);
+                    gfx.DrawRectangle(new XSolidBrush(rowColor), rowRect);
+
+                    // Draw row border
+                    gfx.DrawRectangle(new XPen(XColors.Black, 1), rowRect);
+
+                    // Draw label column
+                    XRect labelRect = new XRect(leftMargin + 5, currentY, col1Width - 5, rowHeight);
+                    gfx.DrawString(rowData[i, 0] + ":", headerFont, XBrushes.Black, labelRect,
+                        new XStringFormat { LineAlignment = XLineAlignment.Center, Alignment = XStringAlignment.Near });
+
+                    // Draw value column
+                    XRect valueRect = new XRect(leftMargin + col1Width + 5, currentY, col2Width - 5, rowHeight);
+                    gfx.DrawString(rowData[i, 1], contentFont, XBrushes.Black, valueRect,
+                        new XStringFormat { LineAlignment = XLineAlignment.Center, Alignment = XStringAlignment.Near });
+
+                    // Draw vertical divider
+                    gfx.DrawLine(new XPen(XColors.Black, 1),
+                        new XPoint(leftMargin + col1Width, currentY),
+                        new XPoint(leftMargin + col1Width, currentY + rowHeight));
+
+                    currentY += rowHeight;
                 }
 
-                using (var writer = new PdfWriter(fullPath))
-                using (var pdf = new PdfDocument(writer))
-                using (var document = new iText.Layout.Document(pdf))
-                {
-                    PdfFont font = PdfFontFactory.CreateFont(fontPath, PdfEncodings.IDENTITY_H, PdfFontFactory.EmbeddingStrategy.FORCE_EMBEDDED);
-                    document.SetFont(font);
+                // Add footer with date and signature lines
+                currentY += 30;
+                string dateStr = "วันที่ " + DateTime.Now.ToString("dd MMMM yyyy");
+                gfx.DrawString(dateStr, contentFont, XBrushes.Black,
+                    new XPoint(page.Width - leftMargin - 200, currentY));
 
-                    // Add title
-                    document.Add(new Paragraph("ระบบบริหารจัดการกลุ่มออมทรัพย์เพื่อการผลิตบ้านท่ารวก")
-                        .SetFontSize(18)
-                        .SetBold()
-                        .SetTextAlignment(TextAlignment.CENTER));
+                currentY += 50;
 
-                    document.Add(new Paragraph("ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี")
-                        .SetFontSize(16)
-                        .SetTextAlignment(TextAlignment.CENTER));
+                // Add signature line
+                double sigLineX = page.Width - leftMargin - 200;
+                double sigLineWidth = 150;
 
-                    document.Add(new Paragraph("ข้อมูลเกี่ยวกับเจ้าหน้าที่กองทุน : การปันผลครอบครัว")
-                        .SetFontSize(16)
-                        .SetTextAlignment(TextAlignment.CENTER));
+                gfx.DrawLine(new XPen(XColors.Black, 1),
+                    new XPoint(sigLineX, currentY),
+                    new XPoint(sigLineX + sigLineWidth, currentY));
 
-                    // Create and add table to the document
-                    Table table = new Table(6); // Set number of columns
-                    table.SetWidth(UnitValue.CreatePercentValue(100)); // Set table width to 100% of the page
+                currentY += 10;
 
-                    // Add table headers
-                    table.AddCell(new Cell().Add(new Paragraph("ชื่อผู้ใช้งาน")));
-                    table.AddCell(new Cell().Add(new Paragraph("รหัสผ่าน")));
-                    table.AddCell(new Cell().Add(new Paragraph("รหัสบัตรประชาชน")));
-                    table.AddCell(new Cell().Add(new Paragraph("เบอร์โทรศัพท์")));
-                    table.AddCell(new Cell().Add(new Paragraph("ชื่อ - สกุล")));
-                    table.AddCell(new Cell().Add(new Paragraph("ที่อยู่")));
+                // Add signature text
+                gfx.DrawString("(ลายเซ็นเจ้าหน้าที่)", contentFont, XBrushes.Black,
+                    new XRect(sigLineX - 25, currentY, sigLineWidth + 50, 20), XStringFormats.Center);
 
-                    // Add data rows
-                    table.AddCell(new Cell().Add(new Paragraph(Username)));
-                    table.AddCell(new Cell().Add(new Paragraph(Password)));
-                    table.AddCell(new Cell().Add(new Paragraph(Idcard)));
-                    table.AddCell(new Cell().Add(new Paragraph(Phone)));
-                    table.AddCell(new Cell().Add(new Paragraph(Fullname)));
-                    table.AddCell(new Cell().Add(new Paragraph(Address)));
-
-                    document.Add(table);
-                }
+                // Save and close document
+                document.Save(fullPath);
 
                 if (File.Exists(fullPath))
                 {
-                    MessageBox.Show($"PDF created successfully!\nSaved at: {fullPath}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"PDF created successfully!\nSaved at: {fullPath}",
+                                   "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    try
+                    {
+                        System.Diagnostics.Process.Start("explorer.exe", fullPath);
+                    }
+                    catch
+                    {
+                        // Ignore if file opening fails
+                    }
                 }
-                else
-                {
-                    throw new IOException("PDF file was not created after the operation");
-                }
-            }
-            catch (UnauthorizedAccessException uaEx)
-            {
-                MessageBox.Show($"No permission to write file: {uaEx.Message}", "Access Rights Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (FileNotFoundException fnfEx)
-            {
-                MessageBox.Show($"File not found: {fnfEx.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (iText.Kernel.Exceptions.PdfException pdfEx)
-            {
-                MessageBox.Show($"PDF creation failed: {pdfEx.Message}\n\nDetails", "PDF Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"PDF creation failed: {ex.Message}\n\nStack trace: {ex.StackTrace}",
+                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Helper method to draw a row with label and value
+        private void DrawRow(XGraphics gfx, string label, string value, XFont labelFont, XFont valueFont,
+                            double x, double y)
+        {
+            gfx.DrawString(label, labelFont, XBrushes.Black, new XPoint(x, y));
+            gfx.DrawString(value, valueFont, XBrushes.Black, new XPoint(x + 150, y));
+        }
+    }
+
+    // Custom font resolver class to handle Thai font
+    public class CustomFontResolver : IFontResolver
+    {
+        public byte[] GetFont(string faceName)
+        {
+            if (faceName.StartsWith("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
+            {
+                string fontPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
+                return File.ReadAllBytes(fontPath);
+            }
+            return null;
+        }
+
+        public FontResolverInfo ResolveTypeface(string familyName, bool isBold, bool isItalic)
+        {
+            if (familyName.Equals("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
+            {
+                return new FontResolverInfo("Kanit-Bold");
+            }
+            // Fallback to standard fonts if Kanit is not available
+            return PlatformFontResolver.ResolveTypeface("Arial", isBold, isItalic);
+        }
+
+        private static readonly IFontResolver PlatformFontResolver = GlobalFontSettings.FontResolver;
+
+        public string DefaultFontName => "Kanit-Bold";
     }
 }

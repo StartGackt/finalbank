@@ -21,6 +21,7 @@ namespace Projectfinal
         private void button5_Click(object sender, EventArgs e)
         {
             new Main().Show();
+            this.Hide();
         }
 
         private void MainReprots_Load(object sender, EventArgs e)
