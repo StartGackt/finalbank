@@ -207,39 +207,95 @@ namespace Projectfinal
                 if (string.IsNullOrEmpty(position) && !string.IsNullOrEmpty(Position))
                     position = Position;
 
-                // Draw table header
-                double yPosition = 150;
+                // Define table properties
+                double tableStartY = 150;
+                double tableWidth = 500;
                 double leftMargin = 50;
+                double rowHeight = 30;
+                double col1Width = 150;
+                double col2Width = tableWidth - col1Width;
 
-                // Draw content rows
-                DrawRow(gfx, "ชื่อผู้ใช้งาน:", username, headerFont, contentFont, leftMargin, yPosition);
-                yPosition += 25;
+                // Draw table header row with background
+                XRect headerRect = new XRect(leftMargin, tableStartY, tableWidth, rowHeight);
+                gfx.DrawRectangle(new XSolidBrush(XColor.FromArgb(220, 220, 220)), headerRect);
+                gfx.DrawRectangle(new XPen(XColors.Black, 1), headerRect);
 
-                DrawRow(gfx, "รหัสผ่าน:", password, headerFont, contentFont, leftMargin, yPosition);
-                yPosition += 25;
+                // Draw header text
+                XRect labelHeaderRect = new XRect(leftMargin, tableStartY, col1Width, rowHeight);
+                XRect valueHeaderRect = new XRect(leftMargin + col1Width, tableStartY, col2Width, rowHeight);
 
-                DrawRow(gfx, "รหัสบัตรประชาชน:", idCard, headerFont, contentFont, leftMargin, yPosition);
-                yPosition += 25;
+                gfx.DrawString("หัวข้อ", headerFont, XBrushes.Black, labelHeaderRect, XStringFormats.Center);
+                gfx.DrawString("ข้อมูล", headerFont, XBrushes.Black, valueHeaderRect, XStringFormats.Center);
 
-                DrawRow(gfx, "เบอร์โทรศัพท์:", phone, headerFont, contentFont, leftMargin, yPosition);
-                yPosition += 25;
+                // Draw vertical divider in header
+                gfx.DrawLine(new XPen(XColors.Black, 1),
+                    new XPoint(leftMargin + col1Width, tableStartY),
+                    new XPoint(leftMargin + col1Width, tableStartY + rowHeight));
 
-                DrawRow(gfx, "ชื่อ - สกุล:", fullname, headerFont, contentFont, leftMargin, yPosition);
-                yPosition += 25;
+                double currentY = tableStartY + rowHeight;
 
-                DrawRow(gfx, "ที่อยู่:", address, headerFont, contentFont, leftMargin, yPosition);
-                yPosition += 25;
+                // Draw table rows
+                string[,] rowData = new string[,] {
+            {"ชื่อผู้ใช้งาน", username},
+            {"รหัสผ่าน", password},
+            {"รหัสบัตรประชาชน", idCard},
+            {"เบอร์โทรศัพท์", phone},
+            {"ชื่อ - สกุล", fullname},
+            {"ที่อยู่", address},
+            {"ตำแหน่ง", position},
+            {"เวลาที่บันทึก", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt")}
+        };
 
-                DrawRow(gfx, "ตำแหน่ง:", position, headerFont, contentFont, leftMargin, yPosition);
-                yPosition += 25;
+                for (int i = 0; i < rowData.GetLength(0); i++)
+                {
+                    // Draw row background with alternating colors
+                    bool isEvenRow = i % 2 == 0;
+                    XColor rowColor = isEvenRow ? XColor.FromArgb(240, 240, 240) : XColor.FromArgb(255, 255, 255);
+                    XRect rowRect = new XRect(leftMargin, currentY, tableWidth, rowHeight);
+                    gfx.DrawRectangle(new XSolidBrush(rowColor), rowRect);
 
-                DrawRow(gfx, "เวลาที่บันทึก:", DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-                       headerFont, contentFont, leftMargin, yPosition);
+                    // Draw row border
+                    gfx.DrawRectangle(new XPen(XColors.Black, 1), rowRect);
 
-                // Draw a border around the content
-                double boxWidth = 500;
-                double boxHeight = yPosition + 25 - 140;
-                gfx.DrawRectangle(new XPen(XColors.Black, 1), leftMargin - 10, 140, boxWidth, boxHeight);
+                    // Draw label column
+                    XRect labelRect = new XRect(leftMargin + 5, currentY, col1Width - 5, rowHeight);
+                    gfx.DrawString(rowData[i, 0] + ":", headerFont, XBrushes.Black, labelRect,
+                        new XStringFormat { LineAlignment = XLineAlignment.Center, Alignment = XStringAlignment.Near });
+
+                    // Draw value column
+                    XRect valueRect = new XRect(leftMargin + col1Width + 5, currentY, col2Width - 5, rowHeight);
+                    gfx.DrawString(rowData[i, 1], contentFont, XBrushes.Black, valueRect,
+                        new XStringFormat { LineAlignment = XLineAlignment.Center, Alignment = XStringAlignment.Near });
+
+                    // Draw vertical divider
+                    gfx.DrawLine(new XPen(XColors.Black, 1),
+                        new XPoint(leftMargin + col1Width, currentY),
+                        new XPoint(leftMargin + col1Width, currentY + rowHeight));
+
+                    currentY += rowHeight;
+                }
+
+                // Add footer with date and signature lines
+                currentY += 30;
+                string dateStr = "วันที่ " + DateTime.Now.ToString("dd MMMM yyyy");
+                gfx.DrawString(dateStr, contentFont, XBrushes.Black,
+                    new XPoint(page.Width - leftMargin - 200, currentY));
+
+                currentY += 50;
+
+                // Add signature line
+                double sigLineX = page.Width - leftMargin - 200;
+                double sigLineWidth = 150;
+
+                gfx.DrawLine(new XPen(XColors.Black, 1),
+                    new XPoint(sigLineX, currentY),
+                    new XPoint(sigLineX + sigLineWidth, currentY));
+
+                currentY += 10;
+
+                // Add signature text
+                gfx.DrawString("(ลายเซ็นเจ้าหน้าที่)", contentFont, XBrushes.Black,
+                    new XRect(sigLineX - 25, currentY, sigLineWidth + 50, 20), XStringFormats.Center);
 
                 // Save and close document
                 document.Save(fullPath);
