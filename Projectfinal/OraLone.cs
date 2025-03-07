@@ -446,9 +446,13 @@ namespace Projectfinal
                 yPos += 50;
 
                 gfx.DrawString($"วันที่ {DateTime.Now:dd MMMM yyyy}", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width - margin, 25), XStringFormats.BottomRight);
+                yPos += 50;
 
-                yPos += 40;
-                gfx.DrawString("(ลายเซ็นเจ้าหน้าที่)", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width, 25), XStringFormats.Center);
+                gfx.DrawString(new string('_', 28), contentFont, XBrushes.Black, new XRect(0, yPos, page.Width - margin, 25), XStringFormats.BottomRight);
+                yPos += 50;
+
+                gfx.DrawString("(ลายเซ็นเจ้าหน้าที่)", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width - margin, 25), XStringFormats.BottomRight);
+
 
                 document.Save(fullPath);
 
