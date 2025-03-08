@@ -44,11 +44,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label3.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(575, 203);
             label3.Name = "label3";
-            label3.Size = new Size(602, 57);
+            label3.Size = new Size(818, 51);
             label3.TabIndex = 87;
             label3.Text = "รายงานการฝากเงินสัจจะออมทรัพย์ประจำเดือน ";
             // 
@@ -62,43 +62,43 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label2.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label2.ForeColor = Color.Gold;
             label2.Location = new Point(557, 131);
             label2.Name = "label2";
-            label2.Size = new Size(635, 57);
+            label2.Size = new Size(856, 51);
             label2.TabIndex = 85;
             label2.Text = "ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี ";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label1.ForeColor = Color.Gold;
             label1.Location = new Point(521, 74);
             label1.Name = "label1";
-            label1.Size = new Size(727, 57);
+            label1.Size = new Size(991, 51);
             label1.TabIndex = 84;
             label1.Text = "ระบบบริหารจัดการกลุ่มออมทรัพย์เพื่อการผลิตบ้านท่ารวก ";
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            lblPassword.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             lblPassword.ForeColor = Color.Transparent;
             lblPassword.Location = new Point(394, 277);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(132, 49);
+            lblPassword.Size = new Size(168, 42);
             lblPassword.TabIndex = 88;
             lblPassword.Text = "เลือกเดือน";
             // 
             // comboBox1
             // 
-            comboBox1.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            comboBox1.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(595, 280);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(558, 48);
+            comboBox1.Size = new Size(558, 44);
             comboBox1.TabIndex = 89;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
@@ -114,7 +114,7 @@
             // button2
             // 
             button2.BackColor = Color.DarkGreen;
-            button2.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button2.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button2.ForeColor = Color.Transparent;
             button2.Location = new Point(783, 809);
             button2.Name = "button2";
@@ -122,11 +122,12 @@
             button2.TabIndex = 221;
             button2.Text = "พิมพ์";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
             button3.BackColor = Color.DarkGreen;
-            button3.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button3.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button3.ForeColor = Color.Transparent;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.Location = new Point(1738, 885);

@@ -11,9 +11,10 @@ namespace Projectfinal.Model
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source = C:\Users\krisa\source\repos\finalbank\finalprojectbankingDB.db");
+            optionsBuilder.UseSqlite(@"Data Source = " + new PathConf().getDBPath());
+            //optionsBuilder.UseSqlite(@"Data Source = E:\dotNet_Project\jame\finalprojectbankingDB.db");
             optionsBuilder.EnableSensitiveDataLogging();
-
+            
         }
 
         public DbSet<AdminRegisterModel> AdminRegisters { get; set; }

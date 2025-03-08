@@ -53,117 +53,117 @@
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            lblAddress.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             lblAddress.ForeColor = Color.Transparent;
             lblAddress.Location = new Point(913, 696);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(189, 49);
+            lblAddress.Size = new Size(246, 42);
             lblAddress.TabIndex = 67;
             lblAddress.Text = "บาท (ร้อยละ 4)";
             // 
             // txtFullname
             // 
-            txtFullname.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtFullname.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtFullname.Location = new Point(395, 456);
             txtFullname.Name = "txtFullname";
-            txtFullname.Size = new Size(462, 47);
+            txtFullname.Size = new Size(462, 41);
             txtFullname.TabIndex = 66;
             // 
             // lblFullname
             // 
             lblFullname.AutoSize = true;
-            lblFullname.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            lblFullname.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             lblFullname.ForeColor = Color.Transparent;
             lblFullname.Location = new Point(136, 456);
             lblFullname.Name = "lblFullname";
-            lblFullname.Size = new Size(170, 49);
+            lblFullname.Size = new Size(219, 42);
             lblFullname.TabIndex = 65;
             lblFullname.Text = "ชื่อ - นามสกุล";
             // 
             // txtMoneyOld
             // 
-            txtMoneyOld.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtMoneyOld.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtMoneyOld.Location = new Point(395, 563);
             txtMoneyOld.Name = "txtMoneyOld";
-            txtMoneyOld.Size = new Size(462, 47);
+            txtMoneyOld.Size = new Size(462, 41);
             txtMoneyOld.TabIndex = 64;
             // 
             // txtFamily
             // 
-            txtFamily.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtFamily.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtFamily.Location = new Point(1272, 352);
             txtFamily.Name = "txtFamily";
-            txtFamily.Size = new Size(462, 47);
+            txtFamily.Size = new Size(462, 41);
             txtFamily.TabIndex = 63;
             // 
             // txtDiv
             // 
-            txtDiv.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtDiv.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtDiv.Location = new Point(395, 696);
             txtDiv.Name = "txtDiv";
-            txtDiv.Size = new Size(462, 47);
+            txtDiv.Size = new Size(462, 41);
             txtDiv.TabIndex = 62;
             // 
             // lblPhone
             // 
             lblPhone.AutoSize = true;
-            lblPhone.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            lblPhone.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             lblPhone.ForeColor = Color.Transparent;
             lblPhone.Location = new Point(139, 563);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(250, 49);
+            lblPhone.Size = new Size(334, 42);
             lblPhone.TabIndex = 61;
             lblPhone.Text = "เงินที่ฝากในรอบ 1 ปี ";
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            lblPassword.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             lblPassword.ForeColor = Color.Transparent;
             lblPassword.Location = new Point(1041, 352);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(170, 49);
+            lblPassword.Size = new Size(224, 42);
             lblPassword.TabIndex = 60;
             lblPassword.Text = "รหัสครอบครัว";
             // 
             // txtusername
             // 
-            txtusername.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtusername.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtusername.Location = new Point(395, 352);
             txtusername.Name = "txtusername";
-            txtusername.Size = new Size(462, 47);
+            txtusername.Size = new Size(462, 41);
             txtusername.TabIndex = 59;
             // 
             // lblIdcard
             // 
             lblIdcard.AutoSize = true;
-            lblIdcard.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            lblIdcard.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             lblIdcard.ForeColor = Color.Transparent;
             lblIdcard.Location = new Point(115, 693);
             lblIdcard.Name = "lblIdcard";
-            lblIdcard.Size = new Size(217, 49);
+            lblIdcard.Size = new Size(284, 42);
             lblIdcard.TabIndex = 58;
             lblIdcard.Text = "  จำนวนเงินปันผล";
             // 
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            lblUsername.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             lblUsername.ForeColor = Color.Transparent;
             lblUsername.Location = new Point(136, 352);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(143, 49);
+            lblUsername.Size = new Size(190, 42);
             lblUsername.TabIndex = 57;
             lblUsername.Text = " ชื่อผู้ใช้งาน";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label3.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(521, 211);
             label3.Name = "label3";
-            label3.Size = new Size(742, 57);
+            label3.Size = new Size(1009, 51);
             label3.TabIndex = 56;
             label3.Text = "ข้อมูลเกี่ยวกับเจ้าหน้าที่กองทุน : การปันผลสมาชิกรายบุคคล";
             // 
@@ -177,40 +177,40 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label2.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label2.ForeColor = Color.Gold;
             label2.Location = new Point(572, 127);
             label2.Name = "label2";
-            label2.Size = new Size(635, 57);
+            label2.Size = new Size(856, 51);
             label2.TabIndex = 54;
             label2.Text = "ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี ";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label1.ForeColor = Color.Gold;
             label1.Location = new Point(536, 70);
             label1.Name = "label1";
-            label1.Size = new Size(727, 57);
+            label1.Size = new Size(991, 51);
             label1.TabIndex = 53;
             label1.Text = "ระบบบริหารจัดการกลุ่มออมทรัพย์เพื่อการผลิตบ้านท่ารวก ";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            label4.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             label4.ForeColor = Color.Transparent;
             label4.Location = new Point(913, 563);
             label4.Name = "label4";
-            label4.Size = new Size(87, 49);
+            label4.Size = new Size(102, 42);
             label4.TabIndex = 69;
             label4.Text = "บาท  ";
             // 
             // button1
             // 
             button1.BackColor = Color.DarkGreen;
-            button1.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button1.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button1.ForeColor = Color.Transparent;
             button1.Location = new Point(662, 809);
             button1.Name = "button1";
@@ -223,7 +223,7 @@
             // button2
             // 
             button2.BackColor = Color.DarkGreen;
-            button2.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button2.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button2.ForeColor = Color.Transparent;
             button2.Location = new Point(945, 809);
             button2.Name = "button2";
@@ -231,11 +231,12 @@
             button2.TabIndex = 221;
             button2.Text = "พิมพ์";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button6
             // 
             button6.BackColor = Color.DarkGreen;
-            button6.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button6.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button6.ForeColor = Color.Transparent;
             button6.Image = (Image)resources.GetObject("button6.Image");
             button6.Location = new Point(1700, 858);

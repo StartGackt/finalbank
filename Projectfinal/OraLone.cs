@@ -6,6 +6,7 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using PdfSharp.Fonts;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Projectfinal
 {
@@ -373,12 +374,15 @@ namespace Projectfinal
         {
             try
             {
-                GlobalFontSettings.FontResolver = new CustomFontResolver();
+                //ประกาศวันไทย
+                CultureInfo thaiCulture = new CultureInfo("th-TH");
 
-                string directoryPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Filepdf";
+                string directoryPath = new PathConf().getPDFPath();
 
                 if (!Directory.Exists(directoryPath))
+                {
                     Directory.CreateDirectory(directoryPath);
+                }
 
                 string fileName = $"LoanContract_{txtNumberLone.Text}_{DateTime.Now:yyyyMMddHHmmss}.pdf";
                 string fullPath = Path.Combine(directoryPath, fileName);
@@ -445,7 +449,7 @@ namespace Projectfinal
                 gfx.DrawString($"ส่งงวดละ: {txtTotalMoneyLone.Text} บาท", contentFont, XBrushes.Black, 300, yPos);
                 yPos += 50;
 
-                gfx.DrawString($"วันที่ {DateTime.Now:dd MMMM yyyy}", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width - margin, 25), XStringFormats.BottomRight);
+                gfx.DrawString($"{DateTime.Now.ToString("ddddที่ d MMMM พ.ศ. yyyy", thaiCulture)}", contentFont, XBrushes.Black, new XRect(0, yPos, page.Width - margin, 25), XStringFormats.BottomRight);
                 yPos += 50;
 
                 gfx.DrawString(new string('_', 28), contentFont, XBrushes.Black, new XRect(0, yPos, page.Width - margin, 25), XStringFormats.BottomRight);
@@ -472,7 +476,7 @@ namespace Projectfinal
             {
                 if (faceName.StartsWith("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
                 {
-                    string fontPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
+                    string fontPath = new PathConf().getFontsPath();
                     return File.ReadAllBytes(fontPath);
                 }
                 return null;

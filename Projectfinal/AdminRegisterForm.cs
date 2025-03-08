@@ -18,9 +18,7 @@ namespace Projectfinal
 
             // Required for PdfSharp to support UTF-8 encoding (for Thai characters)
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            
-            // Register custom font resolver for Thai font support
-            GlobalFontSettings.FontResolver = new CustomFontResolver();
+
         }
 
         dbcontext dbcontext = new dbcontext();
@@ -144,7 +142,9 @@ namespace Projectfinal
             try
             {
                 // Create directory on desktop
-                string directoryPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Filepdf";
+                string directoryPath = new PathConf().getPDFPath();
+
+                //string directoryPath = @"E:\dotNet_Project\jame\Projectfinal\Filepdf";
 
                 if (!Directory.Exists(directoryPath))
                 {
@@ -175,7 +175,7 @@ namespace Projectfinal
                 gfx.DrawString("ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี", subtitleFont, XBrushes.Black,
                               new XRect(0, 70, page.Width, 30), XStringFormats.Center);
 
-                gfx.DrawString("ข้อมูลเกี่ยวกับเจ้าหน้าที่กองทุน : การปันผลครอบครัว", subtitleFont, XBrushes.Black,
+                gfx.DrawString(" ข้อมูลเกี่ยวกับสมาชิก : เพิ่มข้อมูลเจ้าหน้าที่คนใหม่", subtitleFont, XBrushes.Black,
                               new XRect(0, 100, page.Width, 30), XStringFormats.Center);
 
                 // Get form data
@@ -338,7 +338,8 @@ namespace Projectfinal
         {
             if (faceName.StartsWith("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
             {
-                string fontPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
+                string fontPath = new PathConf().getFontsPath();
+                //string fontPath = @"E:\dotNet_Project\jame\Projectfinal\Fonts\Kanit-Bold.ttf";
                 return File.ReadAllBytes(fontPath);
             }
             return null;
@@ -350,7 +351,7 @@ namespace Projectfinal
             {
                 return new FontResolverInfo("Kanit-Bold");
             }
-            // Fallback to standard fonts if Kanit is not available
+            //Fallback to standard fonts if Kanit is not available
             return PlatformFontResolver.ResolveTypeface("Arial", isBold, isItalic);
         }
 

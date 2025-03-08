@@ -35,7 +35,7 @@
             label2 = new Label();
             label1 = new Label();
             button1 = new Button();
-            button2 = new Button();
+            print = new Button();
             button6 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -102,18 +102,18 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // button2
+            // print
             // 
-            button2.BackColor = Color.DarkGreen;
-            button2.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
-            button2.ForeColor = Color.Transparent;
-            button2.Location = new Point(799, 840);
-            button2.Name = "button2";
-            button2.Size = new Size(195, 74);
-            button2.TabIndex = 88;
-            button2.Text = "พิมพ์";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            print.BackColor = Color.DarkGreen;
+            print.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
+            print.ForeColor = Color.Transparent;
+            print.Location = new Point(799, 840);
+            print.Name = "print";
+            print.Size = new Size(195, 74);
+            print.TabIndex = 88;
+            print.Text = "พิมพ์";
+            print.UseVisualStyleBackColor = false;
+            print.Click += print_Click;
             // 
             // button6
             // 
@@ -135,7 +135,7 @@
             BackColor = Color.DarkGreen;
             ClientSize = new Size(1884, 986);
             Controls.Add(button6);
-            Controls.Add(button2);
+            Controls.Add(print);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label3);
@@ -160,5 +160,6 @@
         private Button button1;
         private Button button2;
         private Button button6;
+        private Button print;
     }
 }
