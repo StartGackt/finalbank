@@ -149,7 +149,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGreen;
-            ClientSize = new Size(1920, 1080);
+            ClientSize = new Size(1920, 1055);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(txtPassword);
@@ -160,7 +160,6 @@
             Controls.Add(dateTimePicker1);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;

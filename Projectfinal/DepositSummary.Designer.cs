@@ -52,11 +52,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label3.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label3.ForeColor = Color.Transparent;
             label3.Location = new Point(580, 142);
             label3.Name = "label3";
-            label3.Size = new Size(589, 57);
+            label3.Size = new Size(801, 51);
             label3.TabIndex = 17;
             label3.Text = " ข้อมูลเกี่ยวกับสมาชิก : การสรุปเงินฝากสมาชิก";
             // 
@@ -70,79 +70,79 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label2.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label2.ForeColor = Color.Gold;
             label2.Location = new Point(561, 74);
             label2.Name = "label2";
-            label2.Size = new Size(635, 57);
+            label2.Size = new Size(856, 51);
             label2.TabIndex = 15;
             label2.Text = "ตำบลหนองยายโต๊ะ อำเภอชัยบาดาล จังหวัดลพบุรี ";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("TH Sarabun New", 25.8F, FontStyle.Bold);
+            label1.Font = new Font("Microsoft Sans Serif", 25.8F, FontStyle.Bold);
             label1.ForeColor = Color.Gold;
             label1.Location = new Point(526, 17);
             label1.Name = "label1";
-            label1.Size = new Size(727, 57);
+            label1.Size = new Size(991, 51);
             label1.TabIndex = 14;
             label1.Text = "ระบบบริหารจัดการกลุ่มออมทรัพย์เพื่อการผลิตบ้านท่ารวก ";
             // 
             // txtFullname
             // 
-            txtFullname.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtFullname.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtFullname.Location = new Point(414, 290);
             txtFullname.Name = "txtFullname";
-            txtFullname.Size = new Size(462, 47);
+            txtFullname.Size = new Size(462, 41);
             txtFullname.TabIndex = 116;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            label11.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             label11.ForeColor = Color.Transparent;
             label11.Location = new Point(155, 290);
             label11.Name = "label11";
-            label11.Size = new Size(170, 49);
+            label11.Size = new Size(219, 42);
             label11.TabIndex = 115;
             label11.Text = "ชื่อ - นามสกุล";
             // 
             // txtFamily
             // 
-            txtFamily.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtFamily.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtFamily.Location = new Point(1302, 216);
             txtFamily.Name = "txtFamily";
-            txtFamily.Size = new Size(462, 47);
+            txtFamily.Size = new Size(462, 41);
             txtFamily.TabIndex = 114;
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            label7.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             label7.ForeColor = Color.Transparent;
             label7.Location = new Point(1065, 216);
             label7.Name = "label7";
-            label7.Size = new Size(179, 49);
+            label7.Size = new Size(235, 42);
             label7.TabIndex = 113;
             label7.Text = " รหัสครอบครัว";
             // 
             // txtusername
             // 
-            txtusername.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtusername.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtusername.Location = new Point(414, 216);
             txtusername.Name = "txtusername";
-            txtusername.Size = new Size(462, 47);
+            txtusername.Size = new Size(462, 41);
             txtusername.TabIndex = 112;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            label4.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             label4.ForeColor = Color.Transparent;
             label4.Location = new Point(155, 216);
             label4.Name = "label4";
-            label4.Size = new Size(161, 49);
+            label4.Size = new Size(207, 42);
             label4.TabIndex = 111;
             label4.Text = " เลขที่สมาชิก";
             // 
@@ -157,38 +157,38 @@
             // 
             // txtTotalMoneyLone
             // 
-            txtTotalMoneyLone.Font = new Font("TH Sarabun New", 17.9999981F, FontStyle.Bold);
+            txtTotalMoneyLone.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             txtTotalMoneyLone.Location = new Point(698, 750);
             txtTotalMoneyLone.Name = "txtTotalMoneyLone";
-            txtTotalMoneyLone.Size = new Size(462, 47);
+            txtTotalMoneyLone.Size = new Size(462, 41);
             txtTotalMoneyLone.TabIndex = 119;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            label5.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             label5.ForeColor = Color.Transparent;
             label5.Location = new Point(474, 747);
             label5.Name = "label5";
-            label5.Size = new Size(154, 49);
+            label5.Size = new Size(202, 42);
             label5.TabIndex = 118;
             label5.Text = " รวมเป็นเงิน";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("TH Sarabun New", 22.1999989F, FontStyle.Bold);
+            label6.Font = new Font("Microsoft Sans Serif", 22.1999989F, FontStyle.Bold);
             label6.ForeColor = Color.Transparent;
             label6.Location = new Point(1224, 750);
             label6.Name = "label6";
-            label6.Size = new Size(69, 49);
+            label6.Size = new Size(80, 42);
             label6.TabIndex = 120;
             label6.Text = "บาท";
             // 
             // button2
             // 
             button2.BackColor = Color.DarkGreen;
-            button2.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button2.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button2.ForeColor = Color.Transparent;
             button2.Location = new Point(681, 839);
             button2.Name = "button2";
@@ -201,7 +201,7 @@
             // button3
             // 
             button3.BackColor = Color.DarkGreen;
-            button3.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button3.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button3.ForeColor = Color.Transparent;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.Location = new Point(1762, 866);
@@ -214,7 +214,7 @@
             // button1
             // 
             button1.BackColor = Color.DarkGreen;
-            button1.Font = new Font("TH Sarabun New", 23.9999981F, FontStyle.Bold);
+            button1.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
             button1.ForeColor = Color.Transparent;
             button1.Location = new Point(935, 839);
             button1.Name = "button1";
@@ -222,6 +222,7 @@
             button1.TabIndex = 221;
             button1.Text = "พิมพ์";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // DepositSummary
             // 
