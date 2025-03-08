@@ -31,5 +31,10 @@ namespace Projectfinal
             mainReprots.Show();
             this.Hide();
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

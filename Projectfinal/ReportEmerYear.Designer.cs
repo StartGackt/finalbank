@@ -82,6 +82,7 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(558, 48);
             comboBox1.TabIndex = 105;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // lblPassword
             // 
