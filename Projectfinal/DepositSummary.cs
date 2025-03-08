@@ -7,7 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PdfSharp.Drawing;
+using PdfSharp.Fonts;
+using PdfSharp.Pdf;
 using Projectfinal.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Projectfinal
 {
@@ -18,6 +23,9 @@ namespace Projectfinal
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
+            // Required for PdfSharp to support UTF-8 encoding (for Thai characters)
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
             txtusername.TextChanged += TxtUsername_TextChanged;
         }
 
@@ -116,11 +124,17 @@ namespace Projectfinal
             }
         }
 
-     
+
 
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //print
+        private void button1_Click(object sender, EventArgs e)
+        {
+       
         }
     }
 }

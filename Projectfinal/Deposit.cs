@@ -28,6 +28,10 @@ namespace Projectfinal
             this.WindowState = FormWindowState.Maximized;
             txtusername.TextChanged += TxtUsername_TextChanged;
             txtMoneyLast.TextChanged += txtMoneyLast_TextChanged;
+
+            // Required for PdfSharp to support UTF-8 encoding (for Thai characters)
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
         }
 
         // delete
@@ -230,11 +234,9 @@ namespace Projectfinal
         {
             try
             {
-                // Register custom font resolver for Thai fonts
-                GlobalFontSettings.FontResolver = new CustomFontResolver();
 
                 // Create directory on desktop
-                string directoryPath = @"C:\Users\User\Documents\finalbank\Projectfinal\Filepdf";
+                string directoryPath = new PathConf().getPDFPath();
 
                 if (!Directory.Exists(directoryPath))
                 {
@@ -391,7 +393,7 @@ namespace Projectfinal
             {
                 if (faceName.StartsWith("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
                 {
-                    string fontPath = @"C:\Users\User\Documents\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
+                    string fontPath = new PathConf().getFontsPath();
                     return File.ReadAllBytes(fontPath);
                 }
                 return null;
