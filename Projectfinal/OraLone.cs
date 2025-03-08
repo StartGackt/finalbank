@@ -375,7 +375,7 @@ namespace Projectfinal
             {
                 GlobalFontSettings.FontResolver = new CustomFontResolver();
 
-                string directoryPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Filepdf";
+                string directoryPath = @"C:\Users\User\Documents\finalbank\Projectfinal\Filepdf";
 
                 if (!Directory.Exists(directoryPath))
                     Directory.CreateDirectory(directoryPath);
@@ -472,7 +472,7 @@ namespace Projectfinal
             {
                 if (faceName.StartsWith("Kanit-Bold", StringComparison.OrdinalIgnoreCase))
                 {
-                    string fontPath = @"C:\Users\krisa\source\repos\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
+                    string fontPath = @"C:\Users\User\Documents\finalbank\Projectfinal\Fonts\Kanit-Bold.ttf";
                     return File.ReadAllBytes(fontPath);
                 }
                 return null;
