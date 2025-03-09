@@ -9,7 +9,7 @@ namespace Projectfinal
     class PathConf
     {
         //แก้ path ตรงนี้
-        private const string V = @"E:\dotNet_Project\jame\";
+        private const string V = @"C:\Users\krisa\source\repos\finalbank\";
 
         private string Path = V;
 

@@ -40,11 +40,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="E:\E:\dotNet_Project\jame\Projectfinal\Model\.editorconfig" />
+    <EditorConfigFiles Remove="C:\C:\Users\krisa\source\repos\finalbank\Projectfinal\Model\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="E:\dotNet_Project\jame\Projectfinal\Model\.editorconfig" />
+    <None Include="C:\Users\krisa\source\repos\finalbank\Projectfinal\Model\.editorconfig" />
   </ItemGroup>
 
 </Project>
