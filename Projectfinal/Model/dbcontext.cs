@@ -10,7 +10,7 @@ namespace Projectfinal.Model
     public class dbcontext: DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        { //d
             optionsBuilder.UseSqlite(@"Data Source = " + new PathConf().getDBPath());
             //optionsBuilder.UseSqlite(@"Data Source = E:\dotNet_Project\jame\finalprojectbankingDB.db");
             optionsBuilder.EnableSensitiveDataLogging();
