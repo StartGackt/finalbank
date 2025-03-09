@@ -40,19 +40,19 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <EditorConfigFiles Remove="C:\C:\Users\krisa\source\repos\finalbank\Projectfinal\Model\.editorconfig" />
+    <EditorConfigFiles Remove="C:\Users\User\Documents\finalbank\Projectfinal\Model\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="C:\Users\krisa\source\repos\finalbank\Projectfinal\Model\.editorconfig" />
-=======
-    <EditorConfigFiles Remove="E:\E:\dotNet_Project\jame\Projectfinal\Model\.editorconfig" />
+    <None Include="C:\Users\User\Documents\finalbank\Projectfinal\Model\.editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="E:\dotNet_Project\jame\Projectfinal\Model\.editorconfig" />
->>>>>>> b6f7b4b2d76c8ae6c477e528565d98de940adf30
+    <EditorConfigFiles Remove="EC:\Users\User\Documents\finalbank\Projectfinal\Model\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\User\Documents\finalbank\Projectfinal\Model\.editorconfig" />
   </ItemGroup>
 
 </Project>

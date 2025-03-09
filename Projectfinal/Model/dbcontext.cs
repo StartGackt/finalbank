@@ -11,12 +11,11 @@ namespace Projectfinal.Model
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-<<<<<<< HEAD
+
             optionsBuilder.UseSqlite(@"Data Source = C:\Users\User\Documents\finalbank\finalprojectbankingDB.db");
-=======
-            optionsBuilder.UseSqlite(@"Data Source = " + new PathConf().getDBPath());
+           optionsBuilder.UseSqlite(@"Data Source = " + new PathConf().getDBPath());
             //optionsBuilder.UseSqlite(@"Data Source = E:\dotNet_Project\jame\finalprojectbankingDB.db");
->>>>>>> b6f7b4b2d76c8ae6c477e528565d98de940adf30
+
             optionsBuilder.EnableSensitiveDataLogging();
             
         }

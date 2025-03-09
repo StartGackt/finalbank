@@ -9,13 +9,11 @@ namespace Projectfinal
     class PathConf
     {
         //แก้ path ตรงนี้
-<<<<<<< HEAD
-        private const string V = @"C:\Users\krisa\source\repos\finalbank\";
-=======
-        private const string V = @"E:\dotNet_Project\jame\";
->>>>>>> b6f7b4b2d76c8ae6c477e528565d98de940adf30
 
-        private string Path = V;
+        private const string V1 = @"C:\Users\krisa\source\repos\finalbank\";
+        private const string V2 = @"E:\dotNet_Project\jame\";
+
+        private string Path = V1; // or V2, depending on which path you want to use
 
         public string getPath() => this.Path;
 
@@ -24,6 +22,5 @@ namespace Projectfinal
         public string getPDFPath() => this.Path + @"Projectfinal\Filepdf";
 
         public string getDBPath() => this.Path + @"finalprojectbankingDB.db";
-
     }
 }
