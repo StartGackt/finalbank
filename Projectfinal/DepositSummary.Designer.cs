@@ -45,7 +45,7 @@
             label6 = new Label();
             button2 = new Button();
             button3 = new Button();
-            button1 = new Button();
+            print = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -196,7 +196,6 @@
             button2.TabIndex = 122;
             button2.Text = "บันทึก";
             button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -211,18 +210,18 @@
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
-            // button1
+            // print
             // 
-            button1.BackColor = Color.DarkGreen;
-            button1.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
-            button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(935, 839);
-            button1.Name = "button1";
-            button1.Size = new Size(195, 74);
-            button1.TabIndex = 221;
-            button1.Text = "พิมพ์";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            print.BackColor = Color.DarkGreen;
+            print.Font = new Font("Microsoft Sans Serif", 23.9999981F, FontStyle.Bold);
+            print.ForeColor = Color.Transparent;
+            print.Location = new Point(935, 839);
+            print.Name = "print";
+            print.Size = new Size(195, 74);
+            print.TabIndex = 221;
+            print.Text = "พิมพ์";
+            print.UseVisualStyleBackColor = false;
+            print.Click += print_Click;
             // 
             // DepositSummary
             // 
@@ -230,7 +229,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGreen;
             ClientSize = new Size(1866, 939);
-            Controls.Add(button1);
+            Controls.Add(print);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label6);
@@ -273,6 +272,6 @@
         private Label label6;
         private Button button2;
         private Button button3;
-        private Button button1;
+        private Button print;
     }
 }

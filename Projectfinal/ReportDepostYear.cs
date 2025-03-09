@@ -118,7 +118,7 @@ namespace Projectfinal
         {
             try
             {
-                // 📌 สร้างโฟลเดอร์ปลายทางบน Desktop
+                // 📌 สร้างโฟลเดอร์ปลายทาง
                 string directoryPath = new PathConf().getPDFPath();
                 if (!Directory.Exists(directoryPath))
                 {
